@@ -16,7 +16,9 @@
 
   vars:
     directory_path : /home/jv/Desktop/work/ansible/{{ username }}
-    
+    web_url : "{{ username }}-qa-web.kartrocket.com"
+    api_url : "{{ username }}-qa-api.kartrocket.com"
+
   tasks:
 
     - name: Print a message
@@ -27,6 +29,8 @@
         - " Path of the directory will be : {{ directory_path }}  " 
         - " Repository will be cloned using URL : {{ url }}  "
         - " Branch to be used :  {{ branch }} "
+        - " Web URL for this QA is : {{ web_url }}  "
+        - " Api URL for this QA is : {{ api_url }}  "
 
     - name: Creating directory for QA
       file:

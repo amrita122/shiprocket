@@ -1,1 +1,6 @@
-test
+{
+  "APIBaseUrl": "https://test-qa-api.kartrocket.com/v1/",
+  "baseTemplatePrefix": "https://test-qa-api.kartrocket.com/v1/app/",
+  "GATrackingID" : "XXXXXXXXXXXXX"
+"environment" : "qa"
+}
