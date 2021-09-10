@@ -21,7 +21,7 @@
 
   tasks:
 
-    - name: Print a message
+    - name: Details of actions that are going to be performed
       ansible.builtin.debug:
         msg: 
         - " Thanks for the Input !!!  "
