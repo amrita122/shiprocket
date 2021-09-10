@@ -1,0 +1,42 @@
+---
+- hosts: localhost
+  vars_prompt:
+
+    - name: username
+      prompt: Please provide the QA username 
+      private: no
+
+    - name: url
+      prompt : Please provide the Github URL to be cloned 
+      private: no
+  
+    - name: branch
+      prompt: Please provide the Branch for QA to use
+      private: no
+
+  vars:
+    directory_path : /home/jv/Desktop/work/ansible/{{ username }}
+    
+  tasks:
+
+    - name: Print a message
+      ansible.builtin.debug:
+        msg: 
+        - " Thanks for the Input !!!  "
+        - " Directory will be created as : {{ username }}  " 
+        - " Path of the directory will be : {{ directory_path }}  " 
+        - " Repository will be cloned using URL : {{ url }}  "
+        - " Branch to be used :  {{ branch }} "
+
+    - name: Creating directory for QA
+      file:
+        path: /home/jv/Desktop/work/ansible/{{ username }}
+        state: directory
+        mode: "u=rwx,g=rwx,o=r"
+        recurse: yes
+
+    - name: Cloning the Git Repository
+      ansible.builtin.git:
+        repo: "{{ url }}"
+        dest: "{{ directory_path }}"
+        version: "{{ branch }}"
